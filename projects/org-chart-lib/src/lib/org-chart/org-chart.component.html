@@ -1,0 +1,24 @@
+<ng-container *ngTemplateOutlet="orgChart; context:{ list: orgDataList, isParent: false}">
+</ng-container>
+<ng-template #orgChart let-list="list" let-isParent="isParent">
+  <div class="d-flex">
+    <div *ngFor="let data of list; let i = index">
+      <div class="grid-two-column">
+        <div class="h-30" [ngClass]="{'border-top': i !== 0}"></div>
+        <div class="h-30" [ngClass]="{'border-top': i !== list.length -1, 'border-left': isParent}">
+        </div>
+      </div>
+      <div align="center">
+        <div class="card d-inline-flex">
+          <div [innerHTML]="data.dynamicHtml"></div>
+        </div>
+      </div>
+      <div class="grid-two-column">
+        <div class="h-30"></div>
+        <div class="h-30" [ngClass]="{' border-left': data.orgDataList && data.orgDataList.length}"></div>
+      </div>
+      <ng-container *ngTemplateOutlet="orgChart; context:{ list: data.orgDataList, isParent: true}">
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

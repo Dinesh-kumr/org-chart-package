@@ -1,0 +1,59 @@
+.d-flex {
+  display: flex;
+}
+
+.d-inline-flex {
+  display: inline-flex;
+}
+
+.grid-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card {
+  min-width: 320px;
+  min-height: 68px;
+  border-radius: 4px;
+  border: 1px solid #8D99AE;
+  margin: 0px 100px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.border-right {
+  border-right: 3px dashed;
+}
+
+.border-top {
+  border-top: 3px dashed;
+}
+
+.border-bottom {
+  border-bottom: 3px dashed;
+}
+
+.border-left {
+  border-left: 3px dashed;
+}
+
+.h-30 {
+  height: 30px;
+}
+
+.add-button {
+  width: 30px;
+  height: 30px;
+  bottom: -15px;
+  right: 45%;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
