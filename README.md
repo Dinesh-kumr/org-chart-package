@@ -77,3 +77,6 @@ orgDataList within each node represents its child nodes, forming a hierarchical 
     ]
   }
 ];**
+
+##Example Output Demo:
+[https://org-chart-6a0ab.web.app/]
