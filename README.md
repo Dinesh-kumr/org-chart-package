@@ -1,27 +1,79 @@
 # OrgChart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+org-chart-lib is a powerful npm package designed to simplify the creation of interactive organizational charts in Angular applications. It provides components and utilities to easily visualize hierarchical data structures in a visually appealing and customizable manner.
 
-## Development server
+## Installation:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Install org-chart-lib via npm:
+**npm install org-chart-lib**
 
-## Code scaffolding
+## Get Started:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
+Import OrgChartComponent into your Angular module.
+Use the <lib-org-chart> component in your HTML template, binding your hierarchical data to the orgDataList input.
+## Import OrgChartComponent:
+In your TypeScript file (*.ts), you import the OrgChartComponent from the org-chart-lib package:
+**import { OrgChartComponent } from 'org-chart-lib';**
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Add OrgChartComponent to imports:
+Inside your Angular module file (usually app.module.ts), you include OrgChartComponent in the imports array of your NgModule decorator:
+**imports: [
+  OrgChartComponent,
+  // Other modules or components
+]**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## HTML Template:
+In your HTML file (*.html), you use the <lib-org-chart> component provided by org-chart-lib and bind the orgDataList input property to your data:
+**<lib-org-chart [orgDataList]="orgDataList"></lib-org-chart>**
 
-## Running end-to-end tests
+## Data Structure:
+Your TypeScript variable orgDataList contains the hierarchical data structure for your organizational chart. Let's break down the structure:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+orgDataList is an array containing objects representing nodes in the organizational chart.
+Each object represents a node and can have dynamicHtml (HTML content) and orgDataList (children nodes) properties.
+The HTML content in dynamicHtml will be rendered for each node.
+orgDataList within each node represents its child nodes, forming a hierarchical structure.
+**orgDataList: any = [
+  {
+    dynamicHtml: `
+      <div>
+        <h1>Welcome to OrgChart!</h1>
+        <img src="https://via.placeholder.com/150" alt="Angular Image">
+        <p>This is a sample paragraph.</p>
+        <ul>
+          <li>List item 1</li>
+          <li>List item 2</li>
+          <li>List item 3</li>
+        </ul>
+      </div>
+    `,
+    orgDataList: [
+      {
+        dynamicHtml: `
+          <div>
+            <h2>Child 1</h2>
+            <p>Child content goes here.</p>
+          </div>
+        `,
+        orgDataList: [] // Child nodes of "Child 1"
+      },
+      {
+        dynamicHtml: `
+          <div>
+            <h1>Welcome to Angular!</h1>
+          </div>
+        `,
+        orgDataList: [] // No child nodes for "Welcome to Angular!"
+      },
+      {
+        dynamicHtml: '<span style="color: red;">child 3</span>',
+        orgDataList: [
+          { dynamicHtml: 'child3.1' }, // First child of "child 3"
+          { dynamicHtml: 'child3.2' }  // Second child of "child 3"
+        ]
+      }
+    ]
+  }
+];**
